@@ -4,6 +4,10 @@
     :config
     (setq helm-ls-git-fuzzy-match t)
     )
+  (use-package helm-descbinds
+    :config
+    (helm-descbinds-mode)
+    )
   
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
@@ -18,4 +22,17 @@
   (setq helm-buffers-fuzzy-matching t)
   (setq helm-locate-fuzzy-match t)
   (setq helm-M-x-fuzzy-match t)
+
+  (defun fu/helm-find-files-navigate-forward (orig-fun &rest args)
+    (if (file-directory-p (helm-get-selection))
+	(apply orig-fun args)
+      (helm-maybe-exit-minibuffer)))
+  (advice-add 'helm-execute-persistent-action :around #'fu/helm-find-files-navigate-forward)
+  (define-key helm-find-files-map (kbd "<return>") 'helm-execute-persistent-action)
+
+  (defun fu/helm-find-files-navigate-back (orig-fun &rest args)
+    (if (= (length helm-pattern) (length (helm-find-files-initial-input)))
+	(helm-find-files-up-one-level 1)
+      (apply orig-fun args)))
+  (advice-add 'helm-ff-delete-char-backward :around #'fu/helm-find-files-navigate-back)
   )

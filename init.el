@@ -57,11 +57,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
+ '(custom-safe-themes
+   (quote
+    ("d5b121d69e48e0f2a84c8e4580f0ba230423391a78fcb4001ccb35d02494d79e" default)))
  '(org-agenda-files (quote ("d:/test.org")))
  '(org-todo-keywords (quote ((sequence "TODO(t)" "DONE(d)"))))
  '(package-selected-packages
    (quote
-    (magit powerline projectile yasnippet web-mode use-package php-mode multiple-cursors helm-ls-git expand-region bookmark+ auto-complete ace-jump-mode))))
+    (helm-descbinds git-gutter blackboard-theme magit powerline projectile yasnippet web-mode use-package php-mode multiple-cursors helm-ls-git expand-region bookmark+ auto-complete ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

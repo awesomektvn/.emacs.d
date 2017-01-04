@@ -27,6 +27,10 @@
   :config
   (global-set-key (kbd "C-x g") 'magit-status)
   )
+(use-package git-gutter
+  :config
+  (global-git-gutter-mode +1)
+  )
 ;; ---------------------------------------------------------------------------
 ;; Bookmark
 ;; ---------------------------------------------------------------------------
