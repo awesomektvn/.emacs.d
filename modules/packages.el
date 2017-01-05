@@ -67,11 +67,9 @@
 ;; Web development
 ;; ---------------------------------------------------------------------------
 
-(use-package php-mode
-  )
 (use-package web-mode
   :config
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
   )
