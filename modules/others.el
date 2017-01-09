@@ -22,8 +22,10 @@
 ;; Show column numbers
 (setq column-number-mode t)
 
+;; auto pair
+(electric-pair-mode 1)
 
-					; Use a better unique buffer naming scheme
+;; Use a better unique buffer naming scheme
 (require 'uniquify)
 (setq
  uniquify-buffer-name-style 'post-forward-angle-brackets)
