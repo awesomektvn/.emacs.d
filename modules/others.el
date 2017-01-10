@@ -30,6 +30,9 @@
 (setq
  uniquify-buffer-name-style 'post-forward-angle-brackets)
 
+;; Tabs to Spaces
+(setq-default indent-tabs-mode nil)
+
 ;; Overrite/delete selected region
 (delete-selection-mode t)
 
