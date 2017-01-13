@@ -64,7 +64,7 @@
  '(org-todo-keywords (quote ((sequence "TODO(t)" "DONE(d)"))))
  '(package-selected-packages
    (quote
-    (js2-mode blackboard-theme git-gutter helm-descbinds magit powerline projectile yasnippet web-mode use-package multiple-cursors helm-ls-git expand-region bookmark+ auto-complete ace-jump-mode))))
+    (helm-swoop js2-mode blackboard-theme git-gutter helm-descbinds magit powerline projectile yasnippet web-mode use-package multiple-cursors helm-ls-git expand-region bookmark+ auto-complete ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

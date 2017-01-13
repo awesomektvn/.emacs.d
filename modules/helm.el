@@ -7,7 +7,9 @@
   (use-package helm-descbinds
     :config
     (helm-descbinds-mode)
+    (global-set-key (kbd "C-h C-k") 'helm-descbinds)
     )
+  (use-package helm-swoop)
   
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
