@@ -24,6 +24,13 @@
 
 ;; auto pair
 (electric-pair-mode 1)
+;; make electric-pair-mode work on more brackets
+(setq electric-pair-pairs '(
+                            (?\" . ?\")
+                            (?\' . ?\')
+                            (?\{ . ?\})
+                            ) )
+(setq js-indent-level 2)
 
 ;; Use a better unique buffer naming scheme
 (require 'uniquify)
@@ -32,6 +39,7 @@
 
 ;; Tabs to Spaces
 (setq-default indent-tabs-mode nil)
+(setq tab-width 2) ; or any other preferred value
 
 ;; Overrite/delete selected region
 (delete-selection-mode t)
@@ -56,10 +64,10 @@
    two prefix arguments, write out the day and month name."
   (interactive "P")
   (let ((format (cond
-		 ((not prefix) "%d.%m.%Y")
-		 ((equal prefix '(4)) "%Y-%m-%d")
-		 ((equal prefix '(16)) "%A, %d. %B %Y")))
-	(system-time-locale "de_DE"))
+                 ((not prefix) "%d.%m.%Y")
+                 ((equal prefix '(4)) "%Y-%m-%d")
+                 ((equal prefix '(16)) "%A, %d. %B %Y")))
+        (system-time-locale "de_DE"))
     (insert (format-time-string format))))
 
 (defun indent-buffer ()
@@ -84,26 +92,26 @@
   (interactive)
   (if (= (count-windows) 2)
       (let* ((this-win-buffer (window-buffer))
-	     (next-win-buffer (window-buffer (next-window)))
-	     (this-win-edges (window-edges (selected-window)))
-	     (next-win-edges (window-edges (next-window)))
-	     (this-win-2nd (not (and (<= (car this-win-edges)
-					 (car next-win-edges))
-				     (<= (cadr this-win-edges)
-					 (cadr next-win-edges)))))
-	     (splitter
-	      (if (= (car this-win-edges)
-		     (car (window-edges (next-window))))
-		  'split-window-horizontally
-		'split-window-vertically)))
-	(delete-other-windows)
-	(let ((first-win (selected-window)))
-	  (funcall splitter)
-	  (if this-win-2nd (other-window 1))
-	  (set-window-buffer (selected-window) this-win-buffer)
-	  (set-window-buffer (next-window) next-win-buffer)
-	  (select-window first-win)
-	  (if this-win-2nd (other-window 1))))))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))
 
 ;; ---------------------------------------------------------------------------
 ;; Key bindings
