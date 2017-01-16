@@ -16,6 +16,8 @@
 
 (setq inhibit-startup-screen t)
 
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; Always highlight parens
 (show-paren-mode 1)
 
@@ -30,6 +32,7 @@
                             (?\' . ?\')
                             (?\{ . ?\})
                             ) )
+;; indent js file
 (setq js-indent-level 2)
 
 ;; Use a better unique buffer naming scheme
