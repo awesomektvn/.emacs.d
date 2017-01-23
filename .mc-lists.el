@@ -3,9 +3,12 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-	))
+        ))
 
 (setq mc/cmds-to-run-once
       '(
-	helm-M-x
-	))
+        counsel-M-x
+        helm-M-x
+        ivy-done
+        swiper-mc
+        ))

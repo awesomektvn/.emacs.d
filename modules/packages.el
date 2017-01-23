@@ -13,9 +13,10 @@
   (global-set-key (kbd "C-S-d") 'mc/mark-next-like-this)
   )
 
-(use-package ace-jump-mode
+(use-package avy
   :config
-  (global-set-key (kbd "C-,") 'ace-jump-char-mode)
+  (global-set-key (kbd "C-:") 'avy-goto-char)
+  (global-set-key (kbd "M-g w") 'avy-goto-word-1)
   )
 
 (require 'saveplace) ; built-in
@@ -36,7 +37,7 @@
 ;; ---------------------------------------------------------------------------
 (use-package bookmark+
   :config
-  (global-set-key [f9] 'helm-bookmarks)
+  (global-set-key [f9] 'counsel-bookmark)
   (global-set-key [f11] 'bookmark-set)
   (setq bookmark-default-file "~/.emacs.d/bookmarks")  ;define file to use.
   (setq bookmark-save-flag 1)  ;save bookmarks to .emacs.bmk after each entry
@@ -66,7 +67,12 @@
 ;; ---------------------------------------------------------------------------
 ;; Web development
 ;; ---------------------------------------------------------------------------
-
+(use-package emmet-mode
+  :config
+  (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+  (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+  (add-hook 'emmet-mode-hook (lambda () (setq emmet-indent-after-insert nil)))
+  )
 (use-package web-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
