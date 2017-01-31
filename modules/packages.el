@@ -8,7 +8,7 @@
 
 (use-package multiple-cursors
   :config
-  
+
   (global-set-key (kbd "C-d") 'delete-char)
   (global-set-key (kbd "C-S-d") 'mc/mark-next-like-this)
   )
@@ -21,6 +21,23 @@
 
 (require 'saveplace) ; built-in
 (setq-default save-place t)
+;; ---------------------------------------------------------------------------
+;; System
+;; ---------------------------------------------------------------------------
+(use-package async)
+(use-package paradox
+  :config
+  (setq paradox-execute-asynchronously t)
+  (setq paradox-github-token "e5019dc1a90e7bff43de3afcdf14b8117e3230ee")
+  )
+
+(use-package guide-key
+  :config
+  (setq guide-key/guide-key-sequence '("C-x r" "C-x 4"))
+  (guide-key-mode 1)  ; Enable guide-key-mode
+  (setq guide-key/guide-key-sequence t)
+  (setq guide-key/idle-delay 0.5)
+  )
 ;; ---------------------------------------------------------------------------
 ;; Git
 ;; ---------------------------------------------------------------------------

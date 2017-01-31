@@ -24,6 +24,9 @@
 ;; Show column numbers
 (setq column-number-mode t)
 
+;; show line number
+;(global-linum-mode t)
+
 ;; auto pair
 (electric-pair-mode 1)
 ;; make electric-pair-mode work on more brackets
@@ -147,3 +150,13 @@ directory to make multiple eshell windows easier."
 (global-set-key (kbd "C-c TAB") 'indent-buffer)
 (global-set-key (kbd "C-c C-c TAB") 'cleanup-buffer)
 (global-set-key (kbd "C-x 5") 'toggle-window-split)
+
+
+(define-prefix-command 'toggle-map)
+(bind-key "C-x t" 'toggle-map)
+(bind-keys :map toggle-map
+           ("d" . toggle-debug-on-error)
+           ("l" . linum-mode)
+           ("o" . org-mode)
+           ("t" . text-mode)
+           ("w" . whitespace-mode))
