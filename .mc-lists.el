@@ -9,6 +9,8 @@
       '(
         counsel-M-x
         helm-M-x
+        hungry-delete-backward
         ivy-done
+        swiper
         swiper-mc
         ))

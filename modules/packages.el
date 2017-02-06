@@ -6,6 +6,11 @@
   :ensure expand-region
   :bind ("C-=" . er/expand-region))
 
+(use-package change-inner
+
+  :bind (("M-i" . change-inner)
+         ("M-o" . change-outer)))
+
 (use-package multiple-cursors
   :config
 
@@ -13,31 +18,87 @@
   (global-set-key (kbd "C-S-d") 'mc/mark-next-like-this)
   )
 
+(use-package ace-window
+  :bind (("C-x o" . ace-window)
+         ("M-2" . ace-window))
+  :init
+  (setq aw-background nil)
+  (setq aw-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n ?s)))
+
 (use-package avy
+  :bind ("M-SPC" . avy-goto-char-2)
   :config
-  (global-set-key (kbd "C-:") 'avy-goto-char)
-  (global-set-key (kbd "M-g w") 'avy-goto-word-1)
-  )
+  (setq avy-background t))
+
+(use-package avy-zap)
+
+(bind-keys :prefix-map avy-map
+           :prefix "C-c j"
+           ("c" . avy-goto-char)
+           ("l" . avy-goto-line)
+           ("w" . avy-goto-word-or-subword-1)
+           ("W" . ace-window)
+           ("z" . avy-zap-to-char)
+           ("Z" . avy-zap-up-to-char))
+
+(use-package ace-link
+  :init
+  (ace-link-setup-default))
+
+(bind-key "C-x SPC" 'cycle-spacing)
 
 (require 'saveplace) ; built-in
 (setq-default save-place t)
+
+(use-package move-text
+  :config
+  (move-text-default-bindings)
+  )
 ;; ---------------------------------------------------------------------------
 ;; System
 ;; ---------------------------------------------------------------------------
 (use-package async)
+(setq paradox-github-token "e5019dc1a90e7bff43de3afcdf14b8117e3230ee")
+
 (use-package paradox
   :config
   (setq paradox-execute-asynchronously t)
-  (setq paradox-github-token "e5019dc1a90e7bff43de3afcdf14b8117e3230ee")
   )
 
-(use-package guide-key
+(use-package hungry-delete
+
+  :diminish hungry-delete-mode
+  :init
+  (global-hungry-delete-mode))
+
+(use-package browse-kill-ring
+
+  :bind ("C-x C-y" . browse-kill-ring)
   :config
-  (setq guide-key/guide-key-sequence '("C-x r" "C-x 4"))
-  (guide-key-mode 1)  ; Enable guide-key-mode
-  (setq guide-key/guide-key-sequence t)
-  (setq guide-key/idle-delay 0.5)
+  (setq browse-kill-ring-quit-action 'kill-and-delete-window))
+
+(setq save-interprogram-paste-before-kill t)
+
+(use-package which-key
+  :diminish which-key-mode
+  :init
+  (which-key-mode)
+  :config
+  (setq which-key-popup-type 'minibuffer)
   )
+
+(use-package help-fns+
+  :bind ("C-h M-k" . describe-keymap)) ; For autoloading.
+
+(use-package discover-my-major
+  :bind ("C-h C-m" . discover-my-major))
+
+(use-package restclient
+  )
+
+(use-package comment-dwim-2
+  :ensure t
+  :bind ("M-;" . comment-dwim-2))
 ;; ---------------------------------------------------------------------------
 ;; Git
 ;; ---------------------------------------------------------------------------
@@ -46,6 +107,7 @@
   (global-set-key (kbd "C-x g") 'magit-status)
   )
 (use-package git-gutter
+  :diminish git-gutter-mode
   :config
   (global-git-gutter-mode +1)
   )
@@ -71,9 +133,12 @@
 ;; ---------------------------------------------------------------------------
 
 (use-package auto-complete
+  :diminish auto-complete-mode
   :config
   (ac-config-default)
+  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
   )
+
 ;; ---------------------------------------------------------------------------
 ;; Appearance
 ;; ---------------------------------------------------------------------------
@@ -113,6 +178,7 @@
 ;; Snippet
 ;; ---------------------------------------------------------------------------
 (use-package yasnippet
+  :diminish yas-minor-mode
   :config
   (yas-global-mode 1)
   )

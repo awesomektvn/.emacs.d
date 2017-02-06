@@ -27,6 +27,8 @@
 ;; show line number
 ;(global-linum-mode t)
 
+(setq set-mark-command-repeat-pop t)
+
 ;; auto pair
 (electric-pair-mode 1)
 ;; make electric-pair-mode work on more brackets
@@ -37,6 +39,8 @@
                             ) )
 ;; indent js file
 (setq js-indent-level 2)
+
+(diminish 'auto-revert-mode)
 
 ;; Use a better unique buffer naming scheme
 (require 'uniquify)
@@ -52,6 +56,17 @@
 
 ;; Better char search
 (setq search-default-mode #'char-fold-to-regexp)
+
+(setq echo-keystrokes 0.1
+      use-dialog-box nil
+      visible-bell t)
+(use-package undo-tree
+  :diminish undo-tree-mode
+  :config
+  (progn
+    (global-undo-tree-mode)
+    (setq undo-tree-visualizer-timestamps t)
+    (setq undo-tree-visualizer-diff t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Encoding
@@ -142,7 +157,30 @@ directory to make multiple eshell windows easier."
           (set-window-buffer (next-window) next-win-buffer)
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
+;; ---------------------------------------------------------------------------
+;; Launcher
+;; ---------------------------------------------------------------------------
 
+(defun scratch ()
+  (interactive)
+  (switch-to-buffer-other-window (get-buffer-create "*scratch*")))
+
+(bind-keys :prefix-map launcher-map
+           :prefix "C-x l"
+           ("A" . ansi-term) ;; save "a" for open-agenda
+           ("c" . calc)
+           ("C" . calendar)
+           ("d" . ediff-buffers)
+           ("e" . eshell)
+           ("E" . eww)
+           ("h" . man)
+           ("l" . paradox-list-packages)
+           ("u" . paradox-upgrade-packages)
+           ("p l" . paradox-list-packages)
+           ("p u" . paradox-upgrade-packages)
+           ("P" . proced)
+           ("s" . scratch)
+           ("@" . (lambda () (interactive) (find-file "~/org/tasks.org"))))
 ;; ---------------------------------------------------------------------------
 ;; Key bindings
 ;; ---------------------------------------------------------------------------
@@ -151,6 +189,8 @@ directory to make multiple eshell windows easier."
 (global-set-key (kbd "C-c C-c TAB") 'cleanup-buffer)
 (global-set-key (kbd "C-x 5") 'toggle-window-split)
 
+(global-set-key (kbd "C-;") 'comment-or-uncomment-region)
+(global-set-key (kbd "M-/") 'hippie-expand)
 
 (define-prefix-command 'toggle-map)
 (bind-key "C-x t" 'toggle-map)
