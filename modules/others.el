@@ -103,6 +103,11 @@ directory to make multiple eshell windows easier."
 ;; ---------------------------------------------------------------------------
 ;; handy functions
 ;; ---------------------------------------------------------------------------
+(defun my-expand-file-name-at-point ()
+  "Use hippie-expand to expand the filename"
+  (interactive)
+  (let ((hippie-expand-try-functions-list '(try-complete-file-name-partially try-complete-file-name)))
+    (call-interactively 'hippie-expand)))
 
 (defun insert-date (prefix)
   "Insert the current date. With prefix-argument, use ISO format. With
@@ -184,13 +189,23 @@ directory to make multiple eshell windows easier."
 ;; ---------------------------------------------------------------------------
 ;; Key bindings
 ;; ---------------------------------------------------------------------------
+(global-unset-key (kbd "<f2>"))
+(global-set-key (kbd "<f2> b b") 'counsel-bookmark)
+(global-set-key (kbd "<f2> f 1") (lambda () (interactive) (find-file "~/org/tasks.org")))
+(global-set-key (kbd "<f2> f 2") (lambda () (interactive) (bookmark-jump "tasks.org")))
+(global-set-key (kbd "<f2> f 3") (lambda () (interactive) (find-file "~/.emacs.d/modules/others.el")))
+
+;; (global-set-key (kbd "<f2> r 1") (lambda () (interactive) (shell-command "xfce4-terminal --working-directory=/home/anhnhoktvn/Documents/prod/tracker -e 'bash -c \"npm run dev;bash\"'")))
+(global-set-key (kbd "<f2> r") (lambda () (interactive) (shell-command "xfce4-terminal --working-directory=/home/anhnhoktvn/Documents/prod/tracker-mobi -e 'bash -c \"npm run dev;bash\"'")))
+(global-set-key (kbd "<f2> k ,") (lambda () (interactive) (set-mark-command nil)(set-mark-command nil)(end-of-line)(insert ",")(set-mark-command 1)))
+
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-c TAB") 'indent-buffer)
 (global-set-key (kbd "C-c C-c TAB") 'cleanup-buffer)
 (global-set-key (kbd "C-x 5") 'toggle-window-split)
 
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
-(global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "M-/") 'my-expand-file-name-at-point)
 
 (define-prefix-command 'toggle-map)
 (bind-key "C-x t" 'toggle-map)

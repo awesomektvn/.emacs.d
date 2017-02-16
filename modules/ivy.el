@@ -20,7 +20,7 @@
   (setq ivy-count-format "(%d/%d) ")
   (setq counsel-git-cmd "git ls-files --full-name -- && git ls-files . --exclude-standard --others")
   
-  (global-set-key (kbd "C-s") 'swiper)
+  (global-set-key (kbd "C-s") 'counsel-grep-or-swiper)
   (global-set-key (kbd "C-S-s") 'swiper-all)
   (global-set-key (kbd "C-M-s") 'counsel-git-grep)
   (global-set-key (kbd "M-x") 'counsel-M-x)

@@ -23,23 +23,12 @@
          ("M-2" . ace-window))
   :init
   (setq aw-background nil)
-  (setq aw-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n ?s)))
+  (setq aw-keys '(?a ?s ?d ?f ?i ?d ?h ?t ?n)))
 
 (use-package avy
   :bind ("M-SPC" . avy-goto-char-2)
   :config
   (setq avy-background t))
-
-(use-package avy-zap)
-
-(bind-keys :prefix-map avy-map
-           :prefix "C-c j"
-           ("c" . avy-goto-char)
-           ("l" . avy-goto-line)
-           ("w" . avy-goto-word-or-subword-1)
-           ("W" . ace-window)
-           ("z" . avy-zap-to-char)
-           ("Z" . avy-zap-up-to-char))
 
 (use-package ace-link
   :init
@@ -58,18 +47,21 @@
 ;; System
 ;; ---------------------------------------------------------------------------
 (use-package async)
-(setq paradox-github-token "e5019dc1a90e7bff43de3afcdf14b8117e3230ee")
+(setq paradox-github-token "b50d7930efba2b8c04a307e1245fb97ef4bedfbd")
 
 (use-package paradox
   :config
   (setq paradox-execute-asynchronously t)
   )
+;; (use-package nlinum
+;;   :config
+;;   (global-nlinum-mode t))
 
-(use-package hungry-delete
+;; (use-package hungry-delete
 
-  :diminish hungry-delete-mode
-  :init
-  (global-hungry-delete-mode))
+;;   :diminish hungry-delete-mode
+;;   :init
+;;   (global-hungry-delete-mode))
 
 (use-package browse-kill-ring
 
@@ -132,12 +124,16 @@
 ;; Autocomplete
 ;; ---------------------------------------------------------------------------
 
-(use-package auto-complete
-  :diminish auto-complete-mode
+(use-package company
   :config
-  (ac-config-default)
-  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-  )
+   (global-company-mode))
+
+;; (use-package auto-complete
+;;   :diminish auto-complete-mode
+;;   :config
+;;   (ac-config-default)
+;;   (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+;;   )
 
 ;; ---------------------------------------------------------------------------
 ;; Appearance
