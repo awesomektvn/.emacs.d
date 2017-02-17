@@ -1,4 +1,4 @@
 (use-package avy
-  :bind ("M-SPC" . avy-goto-char-2)
+  :bind ("M-SPC" . avy-goto-word-or-subword-1)
   :config
   (setq avy-background t))
