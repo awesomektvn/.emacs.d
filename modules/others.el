@@ -32,11 +32,15 @@
 ;; auto pair
 (electric-pair-mode 1)
 ;; make electric-pair-mode work on more brackets
-(setq electric-pair-pairs '(
-                            (?\" . ?\")
-                            (?\' . ?\')
-                            (?\{ . ?\})
-                            ) )
+;; (setq electric-pair-pairs '(
+;;                             (?\" . ?\")
+;;                             (?\' . ?\')
+;;                             (?\{ . ?\})
+;;                             ) )
+(use-package smartparens
+  :diminish smartparens-mode
+  :config
+  (smartparens-global-mode t))
 ;; indent js file
 (setq js-indent-level 2)
 
