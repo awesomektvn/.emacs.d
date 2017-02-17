@@ -37,11 +37,11 @@
 ;; ---------------------------------------------------------------------------
 
 (defvar modules-dir (expand-file-name  "modules" user-emacs-directory))
+(defvar packages-dir (expand-file-name  "packages" user-emacs-directory))
 (defvar personal-dir (expand-file-name  "personal" user-emacs-directory))
 (defvar vendor-dir (expand-file-name "vendor" user-emacs-directory))
 
-(message "Loading modules in %s..." modules-dir)
-(mapc 'load (directory-files modules-dir 't "^[^#]*el$"))
+(mapc 'load (directory-files packages-dir 't "^[^#]*el$"))
 
 (when (file-exists-p personal-dir)
   (message "Loading personal configuration files in %s..." personal-dir)
@@ -64,7 +64,7 @@
  '(org-todo-keywords (quote ((sequence "TODO(t)" "WORKING(w)" "DONE(d)"))))
  '(package-selected-packages
    (quote
-    (restart-emacs company nlinum hippie-exp-ext expand-line move-text rainbow-delimiters comment-dwim-2 smartparens-config smartparens restclient discover-my-major help-fns+ which-key browse-kill-ring change-inner ace-link avy-zap ace-window paradox emmet-mode ivy-hydra hydra avy counsel ivy js2-mode blackboard-theme git-gutter magit powerline projectile yasnippet web-mode use-package multiple-cursors expand-region bookmark+ ace-jump-mode)))
+    (counsel-projectile company key-chord editorconfig expand-line move-text rainbow-delimiters comment-dwim-2 smartparens-config smartparens restclient discover-my-major help-fns+ which-key browse-kill-ring hungry-delete change-inner ace-link avy-zap ace-window paradox emmet-mode ivy-hydra hydra avy counsel ivy js2-mode blackboard-theme git-gutter magit powerline projectile yasnippet web-mode use-package multiple-cursors expand-region bookmark+ auto-complete ace-jump-mode)))
  '(paradox-automatically-star t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
