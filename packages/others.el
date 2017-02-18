@@ -197,7 +197,7 @@ directory to make multiple eshell windows easier."
 (global-set-key (kbd "<f2> b b") 'counsel-bookmark)
 (global-set-key (kbd "<f2> f 1") (lambda () (interactive) (find-file "~/org/tasks.org")))
 (global-set-key (kbd "<f2> f 2") (lambda () (interactive) (bookmark-jump "tasks.org")))
-(global-set-key (kbd "<f2> f 3") (lambda () (interactive) (find-file "~/.emacs.d/modules/others.el")))
+(global-set-key (kbd "<f2> f 3") (lambda () (interactive) (find-file "~/org/tracker.org")))
 
 ;; (global-set-key (kbd "<f2> r 1") (lambda () (interactive) (shell-command "xfce4-terminal --working-directory=/home/anhnhoktvn/Documents/prod/tracker -e 'bash -c \"npm run dev;bash\"'")))
 (global-set-key (kbd "<f2> r") (lambda () (interactive) (shell-command "xfce4-terminal --working-directory=/home/anhnhoktvn/Documents/prod/tracker-mobi -e 'bash -c \"npm run dev;bash\"'")))

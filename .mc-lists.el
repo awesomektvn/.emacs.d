@@ -8,6 +8,7 @@
 (setq mc/cmds-to-run-once
       '(
         counsel-M-x
+        counsel-git
         helm-M-x
         hungry-delete-backward
         ivy-done
