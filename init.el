@@ -60,6 +60,7 @@
  '(custom-safe-themes
    (quote
     ("d5b121d69e48e0f2a84c8e4580f0ba230423391a78fcb4001ccb35d02494d79e" default)))
+ '(ecb-layout-name "left10")
  '(ecb-options-version "2.50")
  '(org-agenda-files (quote ("d:/test.org")))
  '(org-todo-keywords (quote ((sequence "TODO(t)" "WORKING(w)" "DONE(d)"))))
