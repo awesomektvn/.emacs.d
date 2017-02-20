@@ -48,7 +48,7 @@
   (mapc 'load (directory-files personal-dir 't "^[^#]*el$")))
 
 ;; ---------------------------------------------------------------------------
-;; Generated code
+;; Custom settings
 ;; ---------------------------------------------------------------------------
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+(load custom-file 'noerror)
