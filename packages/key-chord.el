@@ -5,5 +5,5 @@
   (key-chord-define-global "jj" 'ace-jump-word-mode)
   (key-chord-define-global "df" 'counsel-git)
   (key-chord-define-global "ff" 'ivy-switch-buffer)
-  (key-chord-define-global "fg" 'counsel-git)
+  (key-chord-define-global "fr" 'counsel-bookmark)
   )
