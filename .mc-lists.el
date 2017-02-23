@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        yas-expand
         ))
 
 (setq mc/cmds-to-run-once
@@ -12,6 +13,7 @@
         helm-M-x
         hungry-delete-backward
         ivy-done
+        mouse-set-region
         swiper
         swiper-mc
         ))
