@@ -8,8 +8,6 @@
  kept-old-versions 2
  version-control t) ; use versioned backups
 
-
-;; Fuck GUI shit
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -25,7 +23,7 @@
 (setq column-number-mode t)
 
 ;; show line number
-;(global-linum-mode t)
+;;(global-linum-mode t)
 
 (setq set-mark-command-repeat-pop t)
 
@@ -193,15 +191,6 @@ directory to make multiple eshell windows easier."
 ;; ---------------------------------------------------------------------------
 ;; Key bindings
 ;; ---------------------------------------------------------------------------
-(global-unset-key (kbd "<f2>"))
-(global-set-key (kbd "<f2> b b") 'counsel-bookmark)
-(global-set-key (kbd "<f2> f 1") (lambda () (interactive) (find-file "~/org/tasks.org")))
-(global-set-key (kbd "<f2> f 2") (lambda () (interactive) (bookmark-jump "tasks.org")))
-(global-set-key (kbd "<f2> f 3") (lambda () (interactive) (find-file "~/org/tracker.org")))
-
-;; (global-set-key (kbd "<f2> r 1") (lambda () (interactive) (shell-command "xfce4-terminal --working-directory=/home/anhnhoktvn/Documents/prod/tracker -e 'bash -c \"npm run dev;bash\"'")))
-(global-set-key (kbd "<f2> r") (lambda () (interactive) (shell-command "xfce4-terminal --working-directory=/home/anhnhoktvn/Documents/prod/tracker-mobi -e 'bash -c \"npm run dev;bash\"'")))
-(global-set-key (kbd "<f2> k ,") (lambda () (interactive) (set-mark-command nil)(set-mark-command nil)(end-of-line)(insert ",")(set-mark-command 1)))
 
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-c TAB") 'indent-buffer)
