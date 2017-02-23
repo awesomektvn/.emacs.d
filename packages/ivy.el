@@ -19,6 +19,7 @@
 
   (setq ivy-count-format "(%d/%d) ")
   (setq counsel-git-cmd "git ls-files --full-name -- && git ls-files . --exclude-standard --others")
+  (define-key ivy-minibuffer-map (kbd "C-h") 'swiper-query-replace)
   
   (global-set-key (kbd "C-s") 'counsel-grep-or-swiper)
   (global-set-key (kbd "C-S-s") 'swiper-all)
