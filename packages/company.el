@@ -6,4 +6,5 @@
   (setq company-idle-delay .1)                         ; decrease delay before autocompletion popup shows
   (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
   (global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
+  (setq company-dabbrev-downcase nil)
   )

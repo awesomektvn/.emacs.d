@@ -12,6 +12,7 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+(setq initial-scratch-message ";;Stop thinking!!!")
 (setq inhibit-startup-screen t)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -212,3 +213,6 @@ directory to make multiple eshell windows easier."
 ;; Test
 ;; ---------------------------------------------------------------------------
 
+(use-package neotree
+  :bind ("<f5>" . neotree-toggle)
+  )

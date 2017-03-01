@@ -13,6 +13,8 @@
            ("d" . ediff-buffers)
            ("e" . eshell-here)
            ("E" . eww)
+           ("f" . counsel-git)
+           ("F" . counsel-git-grep)
            ("h" . keyfreq-show)
            ("l" . paradox-list-packages)
            ("u" . paradox-upgrade-packages)
@@ -20,7 +22,8 @@
            ("p l" . paradox-list-packages)
            ("p u" . paradox-upgrade-packages)
            ("P" . proced)
-           ("s" . scratch)
+           ("s" . counsel-grep-or-swiper)
+           ("S" . swiper-all)
 
            ("r" . (lambda () (interactive) (shell-command "xfce4-terminal --working-directory=/home/anhnhoktvn/Documents/prod/tracker-mobi -e 'bash -c \"npm run dev;bash\"'")))
            )

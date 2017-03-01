@@ -4,5 +4,5 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 (custom-set-variables '(org-agenda-files (quote ("~/org")))
-                       '(org-todo-keywords (quote ((sequence "TODO(t)" "PENDING(p)" "WIP(w)" "REVIEW(r)" "|" "DONE(d)"))))
+                       '(org-todo-keywords (quote ((sequence "TODO(t)" "WIP(w)" "REVIEW(r)" "|" "DONE(d)" "CANCEL(c)"))))
 )

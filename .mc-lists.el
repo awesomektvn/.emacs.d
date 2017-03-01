@@ -9,9 +9,12 @@
       '(
         counsel-M-x
         counsel-git
+        counsel-git-grep
+        counsel-grep-or-swiper
         helm-M-x
         hungry-delete-backward
         ivy-done
+        ivy-switch-buffer
         swiper
         swiper-mc
         ))
