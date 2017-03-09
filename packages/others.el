@@ -29,7 +29,7 @@
 (setq set-mark-command-repeat-pop t)
 
 ;; auto pair
-(electric-pair-mode 1)
+;; (electric-pair-mode 1)
 ;; make electric-pair-mode work on more brackets
 ;; (setq electric-pair-pairs '(
 ;;                             (?\" . ?\")
@@ -165,6 +165,9 @@ directory to make multiple eshell windows easier."
           (set-window-buffer (next-window) next-win-buffer)
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
+(defun open-ext-terminal-here ()
+  (interactive)
+  (call-process "xfce4-terminal" nil 0 nil "--tab"))
 ;; ---------------------------------------------------------------------------
 ;; Launcher
 ;; ---------------------------------------------------------------------------
@@ -212,7 +215,10 @@ directory to make multiple eshell windows easier."
 ;; ---------------------------------------------------------------------------
 ;; Test
 ;; ---------------------------------------------------------------------------
-
 (use-package neotree
   :bind ("<f5>" . neotree-toggle)
   )
+
+(use-package pdf-tools
+  :config
+  (pdf-tools-install))

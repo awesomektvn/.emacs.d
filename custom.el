@@ -15,7 +15,7 @@
     ((sequence "TODO(t)" "WIP(w)" "REVIEW(r)" "|" "DONE(d)" "CANCEL(c)"))))
  '(package-selected-packages
    (quote
-    (vue-mode neotree ecb sr-speedbar undo-tree bm key-chord restart-emacs company nlinum hippie-exp-ext expand-line move-text rainbow-delimiters comment-dwim-2 smartparens-config smartparens restclient discover-my-major help-fns+ which-key browse-kill-ring change-inner ace-link avy-zap ace-window paradox emmet-mode ivy-hydra hydra avy counsel ivy js2-mode blackboard-theme git-gutter magit powerline projectile yasnippet web-mode use-package multiple-cursors expand-region bookmark+ ace-jump-mode)))
+    (smartparens pdf-tools flycheck-elixir alchemist json-mode flycheck vue-mode neotree ecb sr-speedbar undo-tree bm key-chord restart-emacs company nlinum hippie-exp-ext expand-line move-text rainbow-delimiters comment-dwim-2 smartparens-config restclient discover-my-major help-fns+ which-key browse-kill-ring change-inner ace-link avy-zap ace-window paradox emmet-mode ivy-hydra hydra avy counsel ivy js2-mode blackboard-theme git-gutter magit powerline projectile yasnippet web-mode use-package multiple-cursors expand-region bookmark+ ace-jump-mode)))
  '(paradox-automatically-star t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

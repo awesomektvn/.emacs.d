@@ -25,10 +25,15 @@
            ("s" . counsel-grep-or-swiper)
            ("S" . swiper-all)
 
-           ("r" . (lambda () (interactive) (shell-command "xfce4-terminal --working-directory=/home/anhnhoktvn/Documents/prod/tracker-mobi -e 'bash -c \"npm run dev;bash\"'")))
+           ("r" . (lambda () (interactive) (shell-command "xfce4-terminal --working-directory=/home/anhnhoktvn/Documents/prod/tracker-desktop -e 'bash -c \"npm run dev;bash\"'")))
+           ("R" . (lambda () (interactive) (shell-command "xfce4-terminal --working-directory=/home/anhnhoktvn/Documents/prod/tracker-mobi -e 'bash -c \"npm run dev;bash\"'")))
+
+           ("t" . (lambda () (interactive) (shell-command (concat "xfce4-terminal --working-directory=" default-directory ))))
+
            )
 
 (which-key-add-key-based-replacements
   "<f2> o" "org files"
-  "<f2> r" "track build"
+  "<f2> r" "track-desktop build"
+  "<f2> R" "track-mobi build"
   )
